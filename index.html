@@ -1,32 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morrigan Installer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .download-links {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .download-links a {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: #007acc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .download-links a:hover {
+            background: #005a9e;
+        }
+        #status {
+            margin: 20px 0;
+            font-weight: bold;
+        }
+    </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const userAgent = navigator.userAgent.toLowerCase();
+            const statusEl = document.getElementById('status');
             let redirectUrl;
 
             if (userAgent.includes("windows")) {
-                redirectUrl = "releases/latest/morrigan-installer-windows-x64.zip";
+                redirectUrl = "releases/latest/morrigan-installer-windows-amd64.zip";
+                statusEl.textContent = "Detected Windows - redirecting...";
             } else if (userAgent.includes("mac os") || userAgent.includes("darwin")) {
-                redirectUrl = "https://github.com/john-morrigan/morrigan-releases/releases/latest/download/morrigan-installer-darwin-arm64.zip";
+                // Detect Apple Silicon vs Intel Mac
+                if (userAgent.includes("arm") || navigator.platform === "MacIntel") {
+                    redirectUrl = "releases/latest/morrigan-installer-darwin-arm64.zip";
+                    statusEl.textContent = "Detected macOS (Apple Silicon) - redirecting...";
+                } else {
+                    redirectUrl = "releases/latest/morrigan-installer-darwin-x86_64.zip";
+                    statusEl.textContent = "Detected macOS (Intel) - redirecting...";
+                }
             } else if (userAgent.includes("linux")) {
-                redirectUrl = "releases/latest/morrigan-installer-linux-x64.zip";
+                redirectUrl = "releases/latest/morrigan-installer-linux-x86_64.zip";
+                statusEl.textContent = "Detected Linux - redirecting...";
             } else {
-                redirectUrl = "releases/latest/morrigan-installer.zip"; // Fallback
+                // Fallback to most common platform
+                redirectUrl = "releases/latest/morrigan-installer-linux-x86_64.zip";
+                statusEl.textContent = "Platform detection uncertain - choose manually below:";
             }
 
+            console.log("User Agent:", userAgent);
             console.log("Redirecting to:", redirectUrl);
-            window.location.href = redirectUrl;
+            
+            // Add a small delay to show the status message
+            setTimeout(() => {
+                if (redirectUrl && !userAgent.includes("bot")) {
+                    window.location.href = redirectUrl;
+                }
+            }, 1500);
         });
     </script>
 </head>
 <body>
-    <p>Redirecting to the appropriate installer...</p>
-    <p>If you're not redirected,
-        <a id="redirect-link" href="releases/latest/morrigan-installer.zip">click here</a>.
-    </p>
+    <div id="status">Detecting your platform...</div>
+    
+    <div class="download-links">
+        <h3>Manual Download Links:</h3>
+        <a href="releases/latest/morrigan-installer-windows-amd64.zip">📥 Windows (64-bit)</a>
+        <a href="releases/latest/morrigan-installer-darwin-arm64.zip">📥 macOS (Apple Silicon)</a>
+        <a href="releases/latest/morrigan-installer-linux-x86_64.zip">📥 Linux (64-bit)</a>
+    </div>
+    
+    <p><a href="releases/latest/">📁 View all available files</a></p>
+    <p><a href="releases/">📋 View all versions</a></p>
 </body>
 </html>
 

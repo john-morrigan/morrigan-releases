@@ -2,22 +2,30 @@
 
 ## Quick Download
 
-### Windows
+Visit [https://yoursite.github.io/morrigan-releases/](https://yoursite.github.io/morrigan-releases/) for automatic platform detection and download.
 
+### Manual Download Links
+
+- **Windows (64-bit):** [morrigan-installer-windows-amd64.zip](releases/latest/morrigan-installer-windows-amd64.zip)
+- **macOS (Apple Silicon):** [morrigan-installer-darwin-arm64.zip](releases/latest/morrigan-installer-darwin-arm64.zip)  
+- **macOS (Intel):** [morrigan-installer-darwin-x86_64.zip](releases/latest/morrigan-installer-darwin-x86_64.zip)
+- **Linux (64-bit):** [morrigan-installer-linux-x86_64.zip](releases/latest/morrigan-installer-linux-x86_64.zip)
+
+### Command Line Download
+
+#### Windows
 ```powershell
-curl -L -o morrigan-installer.zip https://github.com/john-morrigan/morrigan-releases/releases/latest/download/morrigan-installer-windows-amd64.zip
+curl -L -o morrigan-installer.zip https://yoursite.github.io/morrigan-releases/releases/latest/morrigan-installer-windows-amd64.zip
 ```
 
-### macOS
-
+#### macOS
 ```bash
-curl -L -o morrigan-installer.zip https://github.com/john-morrigan/morrigan-releases/releases/latest/download/morrigan-installer-darwin-arm64.zip
+curl -L -o morrigan-installer.zip https://yoursite.github.io/morrigan-releases/releases/latest/morrigan-installer-darwin-arm64.zip
 ```
 
-### Linux
-
+#### Linux
 ```bash
-curl -L -o morrigan-installer.zip https://github.com/john-morrigan/morrigan-releases/releases/latest/download/morrigan-installer-linux-x86_64.zip
+curl -L -o morrigan-installer.zip https://yoursite.github.io/morrigan-releases/releases/latest/morrigan-installer-linux-x86_64.zip
 ```
 
 ## Installation
