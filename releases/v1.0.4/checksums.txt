@@ -1,1 +1,1 @@
-0ef2fc5ae0fdab102d2ff6908ab5b55caa0f47235ac3e217f05058e8cc25b408  morrigan-installer-darwin-arm64.zip
+d8000c8f214f0152921f22fb5b70162864a938fb4b5de21d4dedbcc01da81c70  morrigan-installer-darwin-arm64.zip
