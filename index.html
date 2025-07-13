@@ -41,10 +41,10 @@
             const statusEl = document.getElementById('status');
             let redirectUrl;
 
-            // if (userAgent.includes("windows")) {
-            //     redirectUrl = "releases/latest/MorriganInstallerWindows";
-            //     statusEl.textContent = "Detected Windows - redirecting...";
-            // } else 
+            if (userAgent.includes("windows")) {
+                 redirectUrl = "releases/latest/MorriganInstallerWindows";
+                 statusEl.textContent = "Detected Windows - redirecting...";
+            } else 
             if (userAgent.includes("mac os") || userAgent.includes("darwin")) {
                 redirectUrl = "releases/latest/MorriganInstallerMac";
                 statusEl.textContent = "Detected macOS - redirecting...";
@@ -74,7 +74,7 @@
     
     <div class="download-links">
         <h3>Manual Download Links:</h3>
-        <!-- <a href="releases/latest/MorriganInstallerWindows">📥 Windows (64-bit)</a> -->
+        <a href="releases/latest/MorriganInstallerWindows">📥 Windows (64-bit)</a>
         <a href="releases/latest/MorriganInstallerMac">📥 macOS</a>
         <a href="releases/latest/MorriganInstallerLinux">📥 Linux (64-bit)</a>
     </div>
