@@ -37,34 +37,16 @@
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const userAgent = navigator.userAgent.toLowerCase();
             const statusEl = document.getElementById('status');
-            let redirectUrl;
-
-            if (userAgent.includes("windows")) {
-                 redirectUrl = "releases/latest/MorriganInstallerWindows.exe";
-                 statusEl.textContent = "Detected Windows - redirecting...";
-            } else 
-            if (userAgent.includes("mac os") || userAgent.includes("darwin")) {
-                redirectUrl = "releases/latest/MorriganInstallerMac";
-                statusEl.textContent = "Detected macOS - redirecting...";
-            } else if (userAgent.includes("linux")) {
-                redirectUrl = "releases/latest/MorriganInstallerLinux";
-                statusEl.textContent = "Detected Linux - redirecting...";
-            } else {
-                // Fallback to most common platform
-                redirectUrl = "releases/latest/MorriganInstallerLinux";
-                statusEl.textContent = "Platform detection uncertain - choose manually below:";
-            }
-
-            console.log("User Agent:", userAgent);
+            const redirectUrl = "releases/latest/morrigan-client.exe";
+            
+            statusEl.textContent = "Redirecting to Windows installer...";
+            
             console.log("Redirecting to:", redirectUrl);
             
             // Add a small delay to show the status message
             setTimeout(() => {
-                if (redirectUrl && !userAgent.includes("bot")) {
-                    window.location.href = redirectUrl;
-                }
+                window.location.href = redirectUrl;
             }, 1500);
         });
     </script>
@@ -73,10 +55,8 @@
     <div id="status">Detecting your platform...</div>
     
     <div class="download-links">
-        <h3>Manual Download Links:</h3>
-        <a href="releases/latest/MorriganInstallerWindows.exe">📥 Windows (64-bit)</a>
-        <a href="releases/latest/MorriganInstallerMac">📥 macOS</a>
-        <a href="releases/latest/MorriganInstallerLinux">📥 Linux (64-bit)</a>
+        <h3>Manual Download Link:</h3>
+        <a href="releases/latest/morrigan-client.exe">📥 Windows (64-bit)</a>
     </div>
     
     <p><a href="releases/latest/">📁 View all available files</a></p>
